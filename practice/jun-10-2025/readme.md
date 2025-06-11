@@ -33,27 +33,7 @@ This repository serves as a dedicated space for my learning journey into the fun
 * **Handling Common Challenges:** Basic approaches to dealing with dynamic content (JavaScript-rendered pages), anti-scraping measures (basic CAPTCHAs, IP blocking), and error handling.
 * **Ethical Considerations & Legality:** Understanding `robots.txt`, terms of service, and the legal implications of web scraping.
 
-## Repository Structure
 
-.
-├── html-css/
-│   ├── basic/
-│   │   ├── index.html
-│   │   └── style.css
-│   ├── advanced/
-│   │   ├── layouts/
-│   │   └── animations/
-│   └── accessibility/
-├── seo/
-│   ├── examples/
-│   │   └── optimized-page.html
-│   └── notes/
-│       └── seo-checklist.md
-├── web-crawling/
-│   ├── basic-scraper.py
-│   └── ethical-considerations.md
-├── README.md
-└── LICENSE
 
 
 ## How to Follow Along
