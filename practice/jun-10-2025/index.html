@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table role="log">
+    <!--
+        Table that assistive technology users will not perceive as a table.
+        The log role tells browser this is a log, not a table.
+    -->
+    </table>
+    <ul role="navigation">
+    <!-- This is a navigation region, not a list. -->
+    <li><a href="uri1">nav link 1</a></li>
+    <li><a href="uri2">nav link 2</a></li>
+    <!-- ERROR! Previous list items are not in a list! -->
+    </ul>
+</body>
+</html>

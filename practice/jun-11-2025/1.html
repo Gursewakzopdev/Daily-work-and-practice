@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Box</title>
+    <style>
+        .box {
+            padding: 10px;
+            background-color: antiquewhite;
+            border: 2px solid rgb(40, 40, 38);
+            margin: 10px auto;
+            height: auto;
+            width: 300px;
+            min-height: 200px;
+            box-sizing: border-box;
+            font-family: sans-serif;
+            color: #333;
+            text-align: center;
+        }
+
+        .inspan {
+            padding: 10px;
+            margin: 10px;
+            border: 2px solid #555;
+            background-color: aqua;
+            display: inline-block;
+            box-sizing: border-box;
+            text-align: center;
+            height: 70px;
+            line-height: 50px;
+            font-size: 24px;
+            vertical-align: top;
+        }
+
+        @media screen and (max-width: 480px) {
+            .box {
+                background-color: lightcoral;
+                width: 90%;
+                min-height: 180px;
+            }
+            .inspan {
+                width: calc(100% - 20px);
+                height: 60px;
+                line-height: 40px;
+                margin: 5px;
+                font-size: 18px;
+            }
+            .box .inspan:nth-last-child(-n + 2) {
+                display: none;
+            }
+        }
+
+        @media screen and (min-width: 481px) and (max-width: 768px) {
+            .box {
+                background-color: lightgreen;
+                width: 60%;
+                min-height: 220px;
+            }
+            .inspan {
+                width: calc(50% - 14px);
+                height: 65px;
+                line-height: 45px;
+                margin: 7px;
+                font-size: 22px;
+            }
+            .box .inspan:last-of-type {
+                display: none;
+            }
+        }
+
+        @media screen and (min-width: 769px) {
+            .box {
+                background-color: lightblue;
+                width: 400px;
+                min-height: 250px;
+            }
+            .inspan {
+                width: calc(33.33% - 20px);
+                height: 70px;
+                line-height: 50px;
+                margin: 10px;
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span class="inspan">A</span><span class="inspan">B</span><span class="inspan">C</span>
+        <span class="inspan">D</span>
+        <!-- <span class="inspan">E</span> -->
+    </div>
+</body>
+</html>
