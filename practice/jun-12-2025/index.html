@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bento Grid</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .box {
+            background-color: rgb(238, 109, 139);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.5em;
+        }
+      
+        .grid-container {
+            width: 100%;
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); 
+            grid-template-rows: repeat(2, 200px);
+            gap: 1em; 
+            grid-template-areas:
+                "box-1 box-2 box-2 box-3"
+                "box-1 box-4 box-5 box-3"; 
+            padding: 20px; 
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+
+        .box:nth-child(1) { grid-area: box-1; }
+        .box:nth-child(2) { grid-area: box-2; }
+        .box:nth-child(3) { grid-area: box-3; }
+        .box:nth-child(4) { grid-area: box-4; }
+        .box:nth-child(5) { grid-area: box-5; }
+        @media screen and (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                grid-template-areas: 
+                    "box-1"
+                    "box-2"
+                    "box-3"
+                    "box-4"
+                    "box-5";
+            }
+            .box {
+                min-height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+</html>

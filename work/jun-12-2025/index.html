@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bento grid using tailwind css</title>
+  <link href="./src/output.css" rel="stylesheet">
+  
+</head>
+<body>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 ">
+    <div class="flex h-[100px] lg:h-[200px] items-center justify-center text-center rounded-xl bg-amber-600
+                md:col-span-1 md:row-span-1
+                lg:col-start-1 lg:row-start-1 lg:row-span-1">box - 1</div>
+
+    <div class="flex h-[100px] lg:h-[200px] items-center justify-center text-center rounded-xl bg-amber-600
+                md:col-span-1 md:row-span-1
+                lg:col-span-2 lg:col-start-2 lg:row-start-1">box - 2</div>
+
+    <div class="flex h-[100px] lg:h-[416px] items-center justify-center text-center rounded-xl bg-amber-600
+                md:col-span-1 md:row-span-1
+                lg:col-start-4 lg:row-start-1 lg:row-span-2">box - 3</div>
+
+    <div class="flex h-[100px] lg:h-[200px] items-center justify-center text-center rounded-xl bg-amber-600
+                md:col-span-1 md:row-span-1
+                lg:col-start-1 lg:row-start-2 lg:col-span-2">box - 4</div>
+
+    <div class="flex h-[100px] lg:h-[200px] items-center justify-center text-center rounded-xl bg-amber-600
+                md:col-span-1 md:row-span-1
+                lg:col-start-3 lg:row-start-2">box - 5</div>
+  </div>
+</body>
+</html>
