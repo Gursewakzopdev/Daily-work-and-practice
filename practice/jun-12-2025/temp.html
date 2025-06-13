@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordPress - Zop.dev</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-y: scroll;
+        }
+
+        #readme-content h1,
+        #readme-content h2,
+        #readme-content h3 {
+            scroll-margin-top: 80px;
+        }
+
+        #readme-content pre {
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        
+        #readme-content table {
+            display: block;
+            overflow-x: auto;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #readme-content th,
+        #readme-content td {
+            min-width: 120px;
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            text-align: left;
+        }
+
+        #readme-content h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a202c;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3b82f6;
+            display: inline-block;
+            line-height: 1.2;
+            margin-top: 2rem;
+        }
+
+        #readme-content h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            padding-left: 0.75rem;
+            border-left: 4px solid #06b6d4;
+        }
+
+        #readme-content h3 {
+            font-size: 1.625rem;
+            font-weight: 600;
+            color: #3b82f6;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-700 leading-relaxed">
+    <nav class="fixed top-0 left-0 right-0 bg-white border-b border-slate-200 px-4 md:px-8 py-3 z-50 shadow-sm flex items-center justify-between h-16">
+        <a href="#" class="flex items-center text-xl font-semibold text-slate-900 no-underline">
+            <img src="https://zop.dev/resources/cdn/newsletter/zopdev-transparent-logo.png" alt="zop.dev Logo" width="100" class="h-8 md:h-10 w-auto">
+        </a>
+        
+        <div class="hidden md:flex items-center space-x-8">
+            <a href="#" class="text-slate-600 font-medium hover:text-slate-900 transition-colors no-underline">Features</a>
+            <a href="#" class="text-slate-600 font-medium hover:text-slate-900 transition-colors no-underline">Pricing</a>
+            <a href="#" class="text-slate-600 font-medium hover:text-slate-900 transition-colors no-underline">Blog</a>
+            <a href="#" class="text-slate-600 font-medium hover:text-slate-900 transition-colors no-underline">Docs</a>
+            <a href="#" class="text-slate-600 font-medium hover:text-slate-900 transition-colors no-underline">Contact Us</a>
+        </div>
+        
+        <div class="flex items-center space-x-4">
+            <a href="#" class="flex items-center gap-2 px-4 py-2 bg-slate-100 rounded-md text-slate-700 font-medium no-underline hover:bg-slate-200 transition-colors text-sm md:text-base">
+                <span class="text-yellow-500">⚡</span>
+                <span class="hidden sm:inline">Playground</span>
+            </a>
+            <div class="flex space-x-2">
+                <a href="#" class="px-4 py-2 text-slate-700 no-underline font-medium rounded-md hover:text-slate-900 transition-colors text-sm md:text-base">Log in</a>
+                <a href="#" class="px-4 py-2 bg-slate-900 text-white no-underline font-medium rounded-md hover:bg-slate-800 transition-colors text-sm md:text-base">Sign up</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mt-16 max-w-7xl mx-auto px-4 md:px-8 py-4">
+        <main id="main-readme-area" class="pb-8 md:mr-80">
+            <div class="mb-6 text-slate-500 flex items-center gap-2 text-sm">
+                <span>&larr;</span>
+                <a href="#" class="text-slate-500 hover:text-slate-700 transition-colors no-underline">Integrations</a>
+            </div>
+
+            <div id="readme-content" class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm prose prose-slate max-w-none">
+                <p>Loading README content...</p>
+            </div>
+        </main>
+
+        <aside class="fixed top-20 right-8 w-72 h-[calc(100vh-5rem)] overflow-y-auto bg-white border border-slate-200 rounded-lg p-6 shadow-sm flex flex-col hidden md:block z-40 custom-scrollbar">
+            <div class="flex justify-between items-center mb-4 pb-2 border-b border-slate-200">
+                <h3 class="text-base font-semibold text-slate-900 m-0">Table of Contents</h3>
+                <button id="searchToggleButton" class="bg-transparent border-none cursor-pointer text-slate-500 text-base p-1 rounded-md hover:bg-slate-100 hover:text-slate-900 transition-colors" aria-label="Toggle search">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            
+            <div id="searchContainer" class="mb-4 hidden">
+                <input type="text" id="searchInput" placeholder="Search headings..." class="w-full px-4 py-2 border border-slate-300 rounded-md text-sm text-slate-700 outline-none focus:border-blue-500 transition-colors">
+            </div>
+
+            <div id="sidebar-content" class="flex flex-col flex-grow text-sm">
+            </div>
+        </aside>
+    </div>
+
+    <button class="fixed bottom-8 right-8 w-16 h-16 bg-cyan-600 rounded-full text-white text-2xl flex items-center justify-center cursor-pointer shadow-lg hover:bg-cyan-700 hover:scale-105 transition-all z-50">💬</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        const readmeUrl = 'https://raw.githubusercontent.com/zopdev/helm-charts/main/charts/wordpress/README.md';
+
+        const readmeContentDiv = document.getElementById('readme-content');
+        const sidebarContentDiv = document.getElementById('sidebar-content');
+        const mainReadmeArea = document.getElementById('main-readme-area');
+        const searchToggleButton = document.getElementById('searchToggleButton');
+        const searchContainer = document.getElementById('searchContainer');
+        const searchInput = document.getElementById('searchInput');
+
+        let headingElements = [];
+        let sidebarLinks = [];
+
+        const sidebarSectionsMap = new Map();
+
+        async function fetchReadme() {
+            try {
+                const response = await fetch(readmeUrl);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const readmeMarkdown = await response.text();
+                const readmeHtml = marked.parse(readmeMarkdown);
+                processAndDisplayReadme(readmeHtml);
+            } catch (error) {
+                console.error('Error fetching the README file:', error);
+                readmeContentDiv.innerHTML = `<p class="text-red-500">Error loading README content. Please ensure the URL is correct and try again.</p>`;
+            }
+        }
+
+        function processAndDisplayReadme(htmlContent) {
+            readmeContentDiv.innerHTML = htmlContent;
+            sidebarContentDiv.innerHTML = '';
+            headingElements = [];
+            sidebarLinks = [];
+            sidebarSectionsMap.clear();
+
+            const showAllLink = document.createElement('a');
+            showAllLink.href = '#';
+            showAllLink.textContent = 'Show All';
+            showAllLink.classList.add('block', 'px-3', 'py-2', 'rounded-md', 'text-slate-600', 'hover:bg-slate-100', 'hover:text-slate-900', 'transition-colors', 'whitespace-nowrap', 'overflow-hidden', 'text-ellipsis', 'sidebar-show-all'); 
+            showAllLink.addEventListener('click', (event) => {
+                event.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                updateSidebarActiveLink('');
+                searchInput.value = '';
+                filterSidebarLinks('');
+                searchContainer.classList.add('hidden');
+            });
+            sidebarContentDiv.appendChild(showAllLink);
+            sidebarLinks.push(showAllLink);
+
+            const headings = readmeContentDiv.querySelectorAll('h1, h2, h3');
+            let currentH2CollapsibleGroup = null;
+
+            headings.forEach((heading, index) => {
+                let id = heading.id || `section-${index}`;
+                heading.id = id;
+                headingElements.push(heading);
+
+                if (heading.tagName === 'H1') {
+                    const sidebarLink = document.createElement('a');
+                    sidebarLink.href = `#${id}`;
+                    sidebarLink.classList.add('flex', 'items-center', 'justify-between', 'px-3', 'py-2', 'rounded-md', 'text-slate-600', 'hover:bg-slate-100', 'hover:text-slate-900', 'transition-colors', 'whitespace-nowrap', 'overflow-hidden', 'text-ellipsis', 'font-bold');
+                    sidebarLink.innerHTML = `<span>${heading.textContent}</span>`; // No arrow for H1
+                    
+                    sidebarLink.addEventListener('click', (event) => {
+                        event.preventDefault();
+                        scrollToSection(id);
+                    });
+                    sidebarContentDiv.appendChild(sidebarLink);
+                    sidebarLinks.push(sidebarLink);
+                    currentH2CollapsibleGroup = null;
+
+                } else if (heading.tagName === 'H2') {
+                    const sectionWrapper = document.createElement('div');
+                    sectionWrapper.classList.add('collapsible-section', 'mt-1');
+
+                    const sidebarLink = document.createElement('a');
+                    sidebarLink.href = `#${id}`;
+                    sidebarLink.classList.add('flex', 'items-center', 'justify-between', 'px-3', 'py-2', 'rounded-md', 'text-slate-600', 'hover:bg-slate-100', 'hover:text-slate-900', 'transition-colors', 'whitespace-nowrap', 'overflow-hidden', 'text-ellipsis', 'font-semibold');
+                    sidebarLink.innerHTML = `<span>${heading.textContent}</span> <i class="fas fa-chevron-right text-xs toggle-icon"></i>`; // Arrow for H2
+                    
+                    const collapsibleGroup = document.createElement('div');
+                    collapsibleGroup.classList.add('collapsible-group', 'hidden', 'pl-4');
+
+                    sidebarLink.addEventListener('click', (event) => {
+                        event.preventDefault();
+                        toggleSidebarSection(id);
+                        scrollToSection(id); 
+                    });
+
+                    sectionWrapper.appendChild(sidebarLink);
+                    sectionWrapper.appendChild(collapsibleGroup);
+                    sidebarContentDiv.appendChild(sectionWrapper);
+
+                    sidebarLinks.push(sidebarLink);
+                    currentH2CollapsibleGroup = collapsibleGroup;
+
+                    sidebarSectionsMap.set(id, {
+                        linkElement: sidebarLink,
+                        collapsibleGroup: collapsibleGroup,
+                        toggleIcon: sidebarLink.querySelector('.toggle-icon'),
+                        isExpanded: false
+                    });
+
+                } else if (heading.tagName === 'H3') {
+                    if (currentH2CollapsibleGroup) {
+                        const sidebarLink = document.createElement('a');
+                        sidebarLink.href = `#${id}`;
+                        sidebarLink.classList.add('flex', 'items-center', 'justify-between', 'px-3', 'py-2', 'rounded-md', 'text-slate-600', 'hover:bg-slate-100', 'hover:text-slate-900', 'transition-colors', 'whitespace-nowrap', 'overflow-hidden', 'text-ellipsis', 'ml-4', 'text-sm');
+                        sidebarLink.innerHTML = `<span>${heading.textContent}</span>`; // No arrow for H3
+                        sidebarLink.addEventListener('click', (event) => {
+                            event.preventDefault();
+                            scrollToSection(id);
+                        });
+                        currentH2CollapsibleGroup.appendChild(sidebarLink);
+                        sidebarLinks.push(sidebarLink);
+                    } else {
+                        const sidebarLink = document.createElement('a');
+                        sidebarLink.href = `#${id}`;
+                        sidebarLink.classList.add('flex', 'items-center', 'justify-between', 'px-3', 'py-2', 'rounded-md', 'text-slate-600', 'hover:bg-slate-100', 'hover:text-slate-900', 'transition-colors', 'whitespace-nowrap', 'overflow-hidden', 'text-ellipsis', 'ml-8', 'text-sm');
+                        sidebarLink.innerHTML = `<span>${heading.textContent}</span>`; // No arrow for H3
+                        sidebarContentDiv.appendChild(sidebarLink);
+                        sidebarLinks.push(sidebarLink);
+                    }
+                }
+            });
+
+            window.addEventListener('scroll', highlightActiveSection);
+            window.addEventListener('resize', highlightActiveSection);
+            setTimeout(() => {
+                highlightActiveSection();
+                expandAllSidebarSections();
+            }, 100); 
+        }
+
+        function scrollToSection(sectionId) {
+            const targetElement = document.getElementById(sectionId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+                updateSidebarActiveLink(sectionId);
+                setTimeout(highlightActiveSection, 300); 
+            }
+        }
+
+        function highlightActiveSection() {
+            const currentScrollPos = window.scrollY;
+            const offset = 80;
+
+            let activeSectionId = '';
+
+            for (let i = headingElements.length - 1; i >= 0; i--) {
+                const heading = headingElements[i];
+                if (currentScrollPos + offset >= heading.offsetTop) {
+                    activeSectionId = heading.id;
+                    break;
+                }
+            }
+            updateSidebarActiveLink(activeSectionId);
+        }
+
+        function updateSidebarActiveLink(activeSectionId) {
+            sidebarLinks.forEach(link => {
+                link.classList.remove('bg-cyan-50', 'text-cyan-700', 'font-semibold');
+            });
+
+            if (activeSectionId) {
+                const activeLink = sidebarContentDiv.querySelector(`a[href="#${activeSectionId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('bg-cyan-50', 'text-cyan-700', 'font-semibold');
+                    
+                    let parentCollapsibleGroup = activeLink.closest('.collapsible-group');
+                    if (parentCollapsibleGroup) {
+                        const parentH2Link = parentCollapsibleGroup.previousElementSibling;
+                        if (parentH2Link && parentH2Link.classList.contains('font-semibold')) {
+                            const h2Id = parentH2Link.getAttribute('href').substring(1);
+                            const h2Section = sidebarSectionsMap.get(h2Id);
+                            if (h2Section && h2Section.collapsibleGroup.classList.contains('hidden')) {
+                                toggleSidebarSection(h2Id);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        function toggleSidebarSection(headingId) {
+            const section = sidebarSectionsMap.get(headingId);
+            if (section) {
+                section.collapsibleGroup.classList.toggle('hidden');
+                section.isExpanded = !section.isExpanded;
+
+                if (section.isExpanded) {
+                    section.toggleIcon.classList.replace('fa-chevron-right', 'fa-chevron-down');
+                    section.toggleIcon.classList.add('rotate-90');
+                } else {
+                    section.toggleIcon.classList.replace('fa-chevron-down', 'fa-chevron-right');
+                    section.toggleIcon.classList.remove('rotate-90');
+                }
+            }
+        }
+
+        function expandAllSidebarSections() {
+            sidebarSectionsMap.forEach((section, headingId) => {
+                if (section.collapsibleGroup.classList.contains('hidden')) {
+                    toggleSidebarSection(headingId);
+                }
+            });
+        }
+
+        function collapseAllSidebarSections() {
+            sidebarSectionsMap.forEach((section, headingId) => {
+                if (!section.collapsibleGroup.classList.contains('hidden')) {
+                    toggleSidebarSection(headingId);
+                }
+            });
+        }
+
+        function toggleSearchBar() {
+            searchContainer.classList.toggle('hidden');
+            if (!searchContainer.classList.contains('hidden')) {
+                searchInput.focus();
+            } else {
+                searchInput.value = '';
+                filterSidebarLinks('');
+            }
+        }
+
+        function filterSidebarLinks(query) {
+            const lowerCaseQuery = query.toLowerCase().trim();
+            const showAllLink = sidebarContentDiv.querySelector('.sidebar-show-all');
+
+            if (lowerCaseQuery !== '') {
+                sidebarSectionsMap.forEach(section => {
+                    if (section.collapsibleGroup.classList.contains('hidden')) {
+                        section.collapsibleGroup.classList.remove('hidden');
+                        section.toggleIcon.classList.replace('fa-chevron-right', 'fa-chevron-down');
+                        section.toggleIcon.classList.add('rotate-90');
+                    }
+                });
+            } else {
+                sidebarSectionsMap.forEach(section => {
+                    if (section.isExpanded) {
+                         if (section.collapsibleGroup.classList.contains('hidden')) {
+                            section.collapsibleGroup.classList.remove('hidden');
+                            section.toggleIcon.classList.replace('fa-chevron-down', 'fa-chevron-right');
+                            section.toggleIcon.classList.remove('rotate-90');
+                        }
+                    } else {
+                        if (!section.collapsibleGroup.classList.contains('hidden')) {
+                            section.collapsibleGroup.classList.add('hidden');
+                            section.toggleIcon.classList.replace('fa-chevron-down', 'fa-chevron-right');
+                            section.toggleIcon.classList.remove('rotate-90');
+                        }
+                    }
+                });
+            }
+
+            sidebarLinks.forEach(link => {
+                if (link === showAllLink) {
+                    return; 
+                }
+
+                const linkText = link.textContent.toLowerCase();
+                if (lowerCaseQuery === '' || linkText.includes(lowerCaseQuery)) {
+                    link.style.display = 'block';
+                } else {
+                    link.style.display = 'none';
+                }
+            });
+
+            sidebarSectionsMap.forEach((section, h2Id) => {
+                if (lowerCaseQuery === '') {
+                    const childrenVisible = Array.from(section.collapsibleGroup.children).some(child => child.style.display !== 'none');
+                    if (!childrenVisible && !section.collapsibleGroup.classList.contains('hidden')) {
+                        section.collapsibleGroup.classList.add('hidden');
+                        section.toggleIcon.classList.replace('fa-chevron-down', 'fa-chevron-right');
+                        section.toggleIcon.classList.remove('rotate-90');
+                    }
+                }
+            });
+
+            if (showAllLink) {
+                if (lowerCaseQuery !== '') {
+                    showAllLink.style.display = 'none';
+                } else {
+                    showAllLink.style.display = 'block';
+                }
+            }
+        }
+
+        searchToggleButton.addEventListener('click', toggleSearchBar);
+        searchInput.addEventListener('input', (event) => {
+            filterSidebarLinks(event.target.value);
+        });
+
+        document.addEventListener('DOMContentLoaded', fetchReadme);
+    </script>
+</body>
+</html>
