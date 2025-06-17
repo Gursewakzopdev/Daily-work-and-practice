@@ -1,34 +1,69 @@
 const urlParams = new URLSearchParams(window.location.search);
 const integrationId = urlParams.get('id');
-const readmeUrl = 'https://raw.githubusercontent.com/zopdev/helm-charts/main/charts/jupyterhub/README.md';
-// const readmeUrl = `https://raw.githubusercontent.com/zopdev/helm-charts/main/charts/${integrationId}/README.md`;
 const readmeContentDiv = document.getElementById('readme-content');
 const sidebarContentDiv = document.getElementById('sidebar-content');
 const mainReadmeArea = document.getElementById('main-readme-area');
 const searchToggleButton = document.getElementById('searchToggleButton');
 const searchContainer = document.getElementById('searchContainer');
 const searchInput = document.getElementById('searchInput');
+const loadingBar = document.querySelector('.loading-bar'); // Get the loading bar element
+const loadingMessage = readmeContentDiv.querySelector('p'); // Get the initial loading message
 
 let headingElements = [];
 let sidebarLinks = [];
 
-async function fetchReadme() {
+/**
+ * Attempts to fetch a markdown file from a given URL.
+ * @param {string} url The URL of the markdown file.
+ * @returns {Promise<string|null>} A promise that resolves with the markdown content as a string, or null if fetching fails.
+ */
+async function fetchMarkdown(url) {
     try {
-        const response = await fetch(readmeUrl);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+        const response = await fetch(url);
+        if (response.ok) {
+            return await response.text();
+        } else {
+            console.warn(`Failed to fetch markdown from ${url}: Status ${response.status}`);
+            return null; // Return null on non-OK responses (including 404)
         }
-        const readmeMarkdown = await response.text();
-        const readmeHtml = marked.parse(readmeMarkdown);
-        processAndDisplayReadme(readmeHtml);
     } catch (error) {
-        console.error('Error fetching the README file:', error);
-        readmeContentDiv.innerHTML = `<p style="color: #ef4444;">Error loading README content. Please ensure the URL is correct and try again.</p>`;
+        console.error(`Error during fetch for ${url}:`, error);
+        return null; // Return null on network errors
     }
 }
 
+async function fetchReadme() {
+    // Show loading bar and message
+    if (loadingBar) loadingBar.classList.add('active');
+    if (loadingMessage) loadingMessage.style.display = 'block'; // Ensure message is visible
+
+    const baseUrl = `https://raw.githubusercontent.com/zopdev/helm-charts/main/charts/${integrationId}/`;
+    const readmeUrlsToTry = [`${baseUrl}README.md`, `${baseUrl}Readme.md`];
+
+    let readmeMarkdown = null;
+
+    // Try fetching README.md first
+    readmeMarkdown = await fetchMarkdown(readmeUrlsToTry[0]);
+
+    // If README.md failed, try Readme.md
+    if (readmeMarkdown === null) {
+        readmeMarkdown = await fetchMarkdown(readmeUrlsToTry[1]);
+    }
+
+    if (readmeMarkdown !== null) {
+        const readmeHtml = marked.parse(readmeMarkdown);
+        processAndDisplayReadme(readmeHtml);
+    } else {
+        readmeContentDiv.innerHTML = `<p style="color: #ef4444;">Error loading README content. Neither README.md nor Readme.md could be found or loaded.</p>`;
+    }
+
+    // Hide loading bar after content is rendered or an error occurs
+    if (loadingBar) loadingBar.classList.remove('active');
+    if (loadingMessage) loadingMessage.style.display = 'none'; // Hide the loading message once content is loaded or error shown
+}
+
 function processAndDisplayReadme(htmlContent) {
-    readmeContentDiv.innerHTML = htmlContent;
+    readmeContentDiv.innerHTML = htmlContent; // This will overwrite the loading message and bar initially
     sidebarContentDiv.innerHTML = '';
     headingElements = [];
     sidebarLinks = [];
@@ -80,7 +115,7 @@ function scrollToSection(sectionId) {
     if (targetElement) {
         targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-        updateSidebarActiveLink(sectionId);
+        updateSidebarActiveLink(sectionId); 
         setTimeout(highlightActiveSection, 300);
     }
 }
@@ -98,7 +133,7 @@ function highlightActiveSection() {
             break;
         }
     }
-    updateSidebarActiveLink(activeSectionId);
+    // updateSidebarActiveLink(activeSectionId);
 }
 
 function updateSidebarActiveLink(activeSectionId) {
@@ -107,9 +142,10 @@ function updateSidebarActiveLink(activeSectionId) {
     });
 
     if (activeSectionId) {
-        const activeLink = sidebarContentDiv.querySelector(`a[href="#${activeSectionId}"]`);
-        if (activeLink) {
-            activeLink.classList.add('active');
+        const activeLinked = sidebarContentDiv.querySelector(`a[href="#${activeSectionId}"]`);
+        // console.log(activeLinked);
+        if (activeLinked) {
+            activeLinked.classList.add('active');
         }
     }
 }
